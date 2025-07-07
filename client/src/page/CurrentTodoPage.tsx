@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { GET_FABRIAK_TODO, REMOVE_FABRIAK_TODO } from '../app/api.constant'
+import { GET_TODO, REMOVE_TODO } from '../app/api.constant'
 import { useFetch } from '../hooks/useFetch.hook'
 import { IResponseTodoApi } from '../types/types.api'
 import { Button } from '../ui/Button.component'
@@ -10,12 +10,12 @@ export const CurrentTodoPage: FC = () => {
 	const navigate = useNavigate()
 	const params = useParams<{ id: string }>()
 	const dataTodoById = useFetch<IResponseTodoApi>({
-		url: `${GET_FABRIAK_TODO}/${params.id}`,
+		url: `${GET_TODO}/${params.id}`,
 		enabledCache: true,
 		immediate: true,
 	})
 	const removeTodo = useFetch<{ message: string }>({
-		url: `${REMOVE_FABRIAK_TODO}/${dataTodoById.data?.id}`,
+		url: `${REMOVE_TODO}/${dataTodoById.data?.id}`,
 		options: {
 			method: 'DELETE',
 		},

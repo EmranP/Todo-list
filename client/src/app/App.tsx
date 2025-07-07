@@ -4,7 +4,7 @@ import { TodoHeader } from '../components/TodoHeader'
 import { useFetch } from '../hooks/useFetch.hook'
 import { useInput } from '../hooks/useInput.hook'
 import { IResponseTodoApi } from '../types/types.api'
-import { ADD_FABRIAK_TODO, GET_FABRIAK_TODO } from './api.constant'
+import { ADD_TODO, GET_TODO } from './api.constant'
 import './App.css'
 
 export const App: FC = () => {
@@ -12,7 +12,7 @@ export const App: FC = () => {
 	const todoInput = useInput()
 
 	const addTodoFetch = useFetch<IResponseTodoApi>({
-		url: ADD_FABRIAK_TODO,
+		url: ADD_TODO,
 		options: {
 			method: 'POST',
 			headers: {
@@ -28,7 +28,7 @@ export const App: FC = () => {
 	})
 
 	const refreshTodoFetch = useFetch<IResponseTodoApi[]>({
-		url: GET_FABRIAK_TODO,
+		url: GET_TODO,
 		enabledCache: true,
 		immediate: true,
 	})
