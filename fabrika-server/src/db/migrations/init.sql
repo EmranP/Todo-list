@@ -1,5 +1,0 @@
-CREATE TABLE IF NOT EXISTS public.todo (
-	id SERIAL PRIMARY KEY,
-	title VARCHAR(300) NOT NULL,
-	is_completed BOOLEAN DEFAULT false
-);
